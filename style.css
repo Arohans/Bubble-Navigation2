@@ -1,0 +1,184 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --divWidth: 400px;
+  --divHeight: 400px;
+}
+
+/* Align bubbleContainer in center */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f3904f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3b4371,
+    #f3904f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3b4371,
+    #f3904f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@keyframes spinRight {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(calc(0.35 * var(--divWidth)));
+  }
+}
+@keyframes spinRightIn {
+  from {
+    transform: rotate(0deg) translateX(calc(0.35 * var(--divWidth)));
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(calc(-0.35 * var(--divWidth)));
+  }
+}
+@keyframes spinLeftIn {
+  from {
+    transform: rotate(0deg) translateX(calc(-0.35 * var(--divWidth)));
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinTop {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateY(calc(0.35 * var(--divHeight)));
+  }
+}
+@keyframes spinTopIn {
+  from {
+    transform: rotate(0deg) translateY(calc(0.35 * var(--divHeight)));
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinBottom {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateY(calc(-0.35 * var(--divHeight)));
+  }
+}
+@keyframes spinBottomIn {
+  from {
+    transform: rotate(0deg) translateY(calc(-0.35 * var(--divHeight)));
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bubbleContainer {
+  position: relative;
+  height: var(--divHeight);
+  width: var(--divWidth);
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.centerBubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Times New Roman", Times, serif;
+  z-index: 3;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+}
+
+.topBubble {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  animation: spinTopIn 4s forwards;
+}
+.bottomBubble {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  animation: spinBottomIn 4s forwards;
+}
+.leftBubble {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  animation: spinLeftIn 4s forwards;
+}
+.rightBubble {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  animation: spinRightIn 4s forwards;
+}
+
+.rightOut {
+  animation: spinRight 4s forwards;
+}
+.leftOut {
+  animation: spinLeft 4s forwards;
+}
+.topOut {
+  animation: spinTop 4s forwards;
+}
+.bottomOut {
+  animation: spinBottom 4s forwards;
+}
